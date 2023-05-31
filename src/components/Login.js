@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
+import { googleLogout } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import sharevideo from "../assests/share.mp4";
@@ -44,7 +45,7 @@ const Login = () => {
           <div className="p-5">
             <img
               src="http://photos.prnewswire.com/prnfull/20160712/389032LOGO?max=200"
-              width="130px"
+              width="100px"
             ></img>
           </div>
           <div className="shadow-2xl">
