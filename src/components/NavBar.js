@@ -13,7 +13,7 @@ const NavBar = ({ searchterm, setSearchterm, user }) => {
           type="text"
           placeholder="Search"
           value={searchterm}
-          onFocus={() => navigate("/searrch")}
+          onFocus={() => navigate("/search")}
           onChange={(e) => {
             setSearchterm(e.target.value);
           }}

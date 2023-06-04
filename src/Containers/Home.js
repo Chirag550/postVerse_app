@@ -6,9 +6,10 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { Link, Route, Routes } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import UserProfile from "../components/UserProfile";
-import client from "../client";
+import { Sanityclient } from "../client";
 import Pins from "./Pins";
 import { userQuery } from "../util.js/data";
+import { fetchUser } from "../util.js/fetchUser";
 
 const Home = () => {
   const [toggleSideBar, settoggleSideBar] = useState(false);
@@ -17,15 +18,11 @@ const Home = () => {
 
   const scrollRef = useRef(null);
 
-  const userInfo =
-    localStorage.getItem("user") !== "undefined"
-      ? localStorage.getItem("user")
-      : localStorage.clear();
-  const userinfo = JSON.parse(userInfo);
+  const userinfo = fetchUser();
 
   useEffect(() => {
     const query = userQuery(userinfo?.sub);
-    client.fetch(query).then((data) => {
+    Sanityclient.fetch(query).then((data) => {
       setuser(data[0]);
       console.log("user", data[0]);
     });
@@ -36,9 +33,12 @@ const Home = () => {
   });
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
+      {/* "for desktop slidebar" */}
       <div className="hidden md:flex h-screen flex-initial">
         <Sidebar user={user && user} />
       </div>
+
+      {/* for mobile screen */}
       <div className="flex md:hidden flex-row ">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-lg">
           <HiMenu
@@ -59,8 +59,9 @@ const Home = () => {
           </Link>
         </div>
 
+        {/* {sidebar panel} */}
         {toggleSideBar && (
-          <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+          <div className="fixed w-3/5 bg-gray-500 h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2 ">
               <AiFillCloseCircle
                 onClick={() => {

@@ -1,12 +1,12 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import { googleLogout } from "@react-oauth/google";
+
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+
 import sharevideo from "../assests/share.mp4";
 import jwtDecode from "jwt-decode";
-import { stringify } from "uuid";
-import Client from "../client";
+
+import { Sanityclient } from "../client";
 const Login = () => {
   const navigate = useNavigate();
   const responseGoogle = (response) => {
@@ -22,7 +22,7 @@ const Login = () => {
       image: picture,
     };
 
-    Client.createOrReplace(doc).then(() => {
+    Sanityclient.createOrReplace(doc).then(() => {
       navigate("/", { replace: true });
     });
 

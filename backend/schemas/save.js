@@ -4,7 +4,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'postedby',
+      name: 'postedBy',
       title: 'PostedBy',
       type: 'postedBy',
     },
