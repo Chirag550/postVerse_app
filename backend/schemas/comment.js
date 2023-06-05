@@ -3,7 +3,7 @@ export default {
   title: 'Comment',
   type: 'document',
   fields: [
-    {name: 'postedby', title: 'PostedBy', type: 'postedBy'},
+    {name: 'postedBy', title: 'PostedBy', type: 'postedBy'},
     {
       name: 'comment',
       title: 'Comment',

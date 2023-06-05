@@ -90,15 +90,14 @@ const CreatePin = ({ user }) => {
             {!imageAsset ? (
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
-                  <div className="flex flex-col items-center">
-                    <p className="font-bold text-2xl">
+                  <div className="flex flex-col items-center cursor-pointer">
+                    <p className="font-bold text-2xl ">
                       <AiOutlineCloudUpload />
                     </p>
                     <p className="text-lg">Click to Upload</p>
                   </div>
                   <p className="mt-32 text-gray-400">
-                    Recommendation:use high quality JPG ,SVG ,PNG less than 20
-                    mb
+                    use high quality JPG ,SVG ,PNG less than 20 mb
                   </p>
                 </div>
                 <input
@@ -136,7 +135,7 @@ const CreatePin = ({ user }) => {
             className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
           />
           {user && (
-            <div className="flex gap-2 my-2 items-center bg-gray-100 rounded-lg">
+            <div className="flex gap-2 my-2 items-center bg-gray-100 rounded-lg ">
               <img
                 src={user.image}
                 className="w-10 h-10 rounded-full "

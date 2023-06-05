@@ -40,13 +40,15 @@ const Home = () => {
 
       {/* for mobile screen */}
       <div className="flex md:hidden flex-row ">
-        <div className="p-2 w-full flex flex-row justify-between items-center shadow-lg">
-          <HiMenu
-            fontSize={40}
-            onClick={() => {
-              settoggleSideBar(true);
-            }}
-          />
+        <div className="p-2 w-full flex flex-row justify-between items-center shadow-lg ">
+          <div className="cursor-pointer">
+            <HiMenu
+              fontSize={40}
+              onClick={() => {
+                settoggleSideBar(true);
+              }}
+            />
+          </div>
           <Link to="/">
             <img
               src="http://photos.prnewswire.com/prnfull/20160712/389032LOGO?max=200"
@@ -62,7 +64,7 @@ const Home = () => {
         {/* {sidebar panel} */}
         {toggleSideBar && (
           <div className="fixed w-3/5 bg-gray-500 h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
-            <div className="absolute w-full flex justify-end items-center p-2 ">
+            <div className="absolute w-full flex justify-end items-center p-2 cursor-pointer">
               <AiFillCloseCircle
                 onClick={() => {
                   settoggleSideBar(false);
